@@ -53,16 +53,14 @@ void Cage::addAnimal(Animal* animal)
     {
         throw MaxCapacityException("Cage is full");
     }
-    if (animal->getPredator())
-    {
-        for (auto a : animals)
+   for (auto a : animals)
         {
             if (a->getPredator() != animal->getPredator())
             {
                 throw PredatorException("Predators and non-predators cannot live together");
             }
         }
-    }
+    
     animals.push_back(animal);
 }
 
